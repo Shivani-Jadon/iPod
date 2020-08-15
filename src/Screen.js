@@ -12,11 +12,15 @@ function Screen(){
 let styling = {
     frame : {
         minHeight : 300,
-        background : 'black'
+        background : 'azure',
+        border : '4px black solid',
+        borderRadius : 5
     },
     image : {
         width : 100,
-        height : 100
+        height : 100,
+        position : 'relative',
+        top : 100
     }
 }
 

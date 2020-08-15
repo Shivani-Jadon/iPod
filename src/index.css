@@ -9,7 +9,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: dimgray;
+  background-color: lightgray;
 }
 
 @media Screen and (max-height : 570px){
