@@ -5,6 +5,18 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: dimgray;
+}
+
+@media Screen and (max-height : 570px){
+  body{
+    align-items: baseline;
+    padding-top: 5px;
+  }
 }
 
 code {
