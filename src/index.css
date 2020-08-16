@@ -14,8 +14,7 @@ body {
 
 @media Screen and (max-height : 570px){
   body{
-    align-items: baseline;
-    padding-top: 5px;
+    background-color: black;
   }
 }
 

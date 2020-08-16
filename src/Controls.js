@@ -5,9 +5,11 @@ function Controls(){
     return (
         <div id="control" style={styling.container}>
             <div id="menu-btn" style={styling.menuBtn}>Menu</div>
-            <div id="back-btn" style={styling.backArrow}>Back</div>
-            <div id="forward-btn" style={styling.forwardArrow}>Ford</div>
-            <div id="play-btn" style={styling.play_pause}>Play</div>
+            <div id="back-btn" style={styling.backArrow}><i className="fas fa-fast-backward"></i></div>
+            <div id="forward-btn" style={styling.forwardArrow}><i className="fas fa-fast-forward"></i></div>
+            <div id="play-btn" style={styling.play_pause}>
+               <i className="fas fa-play"></i>  <i className="fas fa-pause"></i> 
+            </div>
             <div id="okay-btn" style={styling.selectBtn}></div>
         </div>
     )
@@ -21,14 +23,16 @@ let styling = {
         gridTemplateRows : '1fr 1fr 1fr',
         height : 150,
         width : 150,
-        background : 'grey',
+        background : 'ivory',
         alignItems : 'center',
         borderRadius : '50%',
-        margin : '20px auto'
+        margin : '20px auto',
+        color : '#9E9E9E',
     },
     menuBtn : {
         gridRow : '1/2',
-        gridColumn : '1/4'
+        gridColumn : '1/4',
+        fontWeight : 900
     },
     backArrow : {
         gridRow : '2/3',
@@ -40,7 +44,8 @@ let styling = {
     },
     play_pause : {
         gridRow : '3/4',
-        gridColumn : '1/4'
+        gridColumn : '1/4',
+        fontSize : 12
     },
     selectBtn : {
         gridRow : '2/3',
@@ -50,7 +55,6 @@ let styling = {
         width:50,
         height : 50,
         justifySelf : 'center',
-
     }
 }
 
