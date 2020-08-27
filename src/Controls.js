@@ -1,5 +1,8 @@
 import React from 'react';
 import './App.css';
+import ZingTouch from 'zingtouch';
+
+
 
 function Controls(props){
     return (
@@ -56,6 +59,27 @@ let styling = {
         height : 50,
         justifySelf : 'center',
     }
+}
+
+
+window.onload = () => {
+    const containerElement = document.getElementById('control');
+    const activeRegion = ZingTouch.Region(containerElement);
+
+    const childElement = document.getElementById('control');
+
+    activeRegion.bind(childElement, 'rotate', function(event){
+        //Perform Operations
+        console.log(event.detail);
+        childElement.style.background = "black";
+    });
+
+    // new ZingTouch.Rotate({
+    //   // angle : ,
+    //   // distanceFromOrigin : ,
+    //   distanceFromLast : -15,
+    // })
+
 }
 
 export default Controls;

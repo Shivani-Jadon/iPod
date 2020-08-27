@@ -32,18 +32,4 @@ class App extends React.Component{
 }
 
 
-// const containerElement = document.getElementById('control');
-// const activeRegion = ZingTouch.Region(containerElement);
-
-// const childElement = document.getElementById('menuList');
-// activeRegion.bind(childElement, 'rotate', function(event){
-// 	//Perform Operations
-// });
-
-// new ZingTouch.Rotate({
-//   // angle : ,
-//   // distanceFromOrigin : ,
-//   distanceFromLast : -15,
-// })
-
 export default App;
