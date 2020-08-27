@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-function Controls(){
+function Controls(props){
     return (
         <div id="control" style={styling.container}>
             <div id="menu-btn" style={styling.menuBtn}>Menu</div>
@@ -10,7 +10,7 @@ function Controls(){
             <div id="play-btn" style={styling.play_pause}>
                <i className="fas fa-play"></i>  <i className="fas fa-pause"></i> 
             </div>
-            <div id="okay-btn" style={styling.selectBtn}></div>
+            <div id="okay-btn" style={styling.selectBtn} onClick={() => {props.onUnlock()}}></div>
         </div>
     )
 }
