@@ -2,8 +2,7 @@ import React from 'react';
 import './App.css';
 
 class Coverflow extends React.Component{
-    super();
-
+    
     changeCover() {
 
     }
