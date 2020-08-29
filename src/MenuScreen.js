@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 
-function MenuScreen(){
+function MenuScreen(props){
     return (
-            <ul id="menuList" style={styling.list}>
+        <ul id="menuList" style={styling.list} onLoad={props.pickMenu()}>
                 <li style={styling.item} className='list active'>
                     <span>Cover Flow</span> <span>&gt;</span>
                 </li>
@@ -16,7 +16,7 @@ function MenuScreen(){
                 <li style={styling.item} className='list'>
                     <span>Settings</span> <span>&gt;</span>
                 </li>
-            </ul>
+        </ul>
     )
 }
 

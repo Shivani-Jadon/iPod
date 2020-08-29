@@ -1,7 +1,5 @@
 import React from 'react';
 import './App.css';
-import ZingTouch from 'zingtouch';
-
 
 
 function Controls(props) {
@@ -68,35 +66,5 @@ let styling = {
     }
 }
 
-
-window.onload = () => {
-    const containerElement = document.getElementById('wheel');
-    const activeRegion = ZingTouch.Region(containerElement);
-
-    const childElement = document.getElementById('wheel');
-
-    let list_item = document.getElementsByClassName('list')
-    let i = 0;
-
-    activeRegion.bind(childElement, 'rotate', function(event){
-        //Perform Operations
-        //console.log(event.detail);
-        
-        if (event.detail.distanceFromLast > 3) {
-            console.log(event.detail.distanceFromLast);
-
-            if (i >= list_item.length)
-                i = 0;
-          
-            list_item[i].style.background = 'grey';
-
-            i++;
-        }
-        
-        //list_item.style.background = "black";
-    });
-
-
-}
 
 export default Controls;
