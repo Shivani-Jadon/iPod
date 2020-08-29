@@ -4,16 +4,16 @@ import './App.css';
 function MenuScreen(){
     return (
             <ul id="menuList" style={styling.list}>
-                <li style={styling.item} className='active'>
+                <li style={styling.item} className='list active'>
                     <span>Cover Flow</span> <span>&gt;</span>
-                </li>
-                <li style={styling.item}>
+            </li>
+            <li style={styling.item} className='list'>
                     <span>Music</span> <span>&gt;</span>
                 </li>
-                <li style={styling.item}>
+            <li style={styling.item} className='list'>
                     <span>Games</span> <span>&gt;</span>
                 </li>
-                <li style={styling.item}>
+            <li style={styling.item} className='list'>
                 <span>Settings</span> <span>&gt;</span>
                 </li>
             </ul>

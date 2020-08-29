@@ -10,7 +10,7 @@ const Screen = (props) => {
 
     return (
         <div id="ipod-screen" style={styling.frame}>
-            {unlock ? <MenuScreen/> : <LockScreen/>}
+            {unlock>0 ? <MenuScreen/> : <LockScreen/>}
         </div>
     )
 }

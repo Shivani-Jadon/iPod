@@ -16,4 +16,9 @@
   background-color: #fffff0b5;
 }
 
+/*add hovering effect on wheel*/
+#wheel:hover{
+    cursor:pointer;
+}
+
 
