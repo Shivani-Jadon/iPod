@@ -9,7 +9,7 @@ class App extends React.Component{
 
 	this.state = {
 		screen: 0,
-		menu: -1
+		menu: 0
 	}
   }
 
