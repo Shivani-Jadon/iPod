@@ -9,23 +9,24 @@ class Coverflow extends React.Component{
 
     render() {
         return (
-            <div id="coverflow-container">
-                <div className='covers'>
+            <ul id="coverflow-container" className='list'>
+                <li className='covers list-items active'>
                     <img alt='cover1'/>
-                </div>
-                <div className='covers'>
+                </li>
+                <li className='covers list-items'>
                     <img alt='cover2' />
-                </div>
-                <div className='covers'>
+                </li>
+                <li className='covers list-items'>
                     <img alt='cover3' />
-                </div>
-                <div className='covers'>
+                </li>
+                <li className='covers list-items'>
                     <img alt='cover4' />
-                </div>
-            </div>
+                </li>
+            </ul>
         )
     }
    
 }
+
 
 export default Coverflow;

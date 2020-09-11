@@ -3,11 +3,16 @@ import './App.css';
 
 const Games = (props) =>  {
     return (
-        <div>
-            <div>Throw dice <img alt='dice'/></div>
-            <div>Catch the rabbit <img alt='rabbit'/></div>
-        </div>
+        <ul id='games-list-items' className='list'>
+            <li className='list-items active'>
+                    <span>Throw the dice</span> <span>&gt;</span>
+            </li>
+            <li className='list-items'>
+                <span>Catch the rabbit </span> <span>&gt;</span>
+            </li>
+        </ul>
     )
 }
+
 
 export default Games;

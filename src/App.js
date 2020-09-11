@@ -6,15 +6,14 @@ import ZingTouch from 'zingtouch';
 
 
 class App extends React.Component{
-  constructor(){
-	super();
+	constructor(){
+		super();
 
-	this.state = {
-		screen: 0,
-		menu: 0,
-		menuItem: 0,
+		this.state = {
+			screen: 0,
+			menu: 0,
+		}
 	}
-}
 
   //function for unlocking the ipod if select-btn is pressed on lock screen
 	unlocking = () => {
@@ -35,12 +34,55 @@ class App extends React.Component{
 	}
 
 
+	
+
+	// change menu item list
+	menuItem = 3;
+
+
+	//funtion to move over the menu items
+	move = () => {
+		
+			const containerElement = document.getElementById('wheel');
+			const activeRegion = ZingTouch.Region(containerElement);
+
+			const childElement = document.getElementById('wheel');
+
+			let list_item = document.getElementsByClassName('list-items')
+			let i = 0;
+
+			activeRegion.bind(childElement, 'rotate', function (event) {
+				//Perform Operations
+				console.log(event.detail);
+
+				if (event.detail.distanceFromLast > 4) {
+					//console.log(event.detail.distanceFromLast);
+
+					if (i >= list_item.length){
+						i = 0;
+						this.menuItem = i;
+					}			
+
+			
+					let current = document.getElementsByClassName("active");
+					current[0].className = current[0].className.replace(" active", "");
+					list_item[i].className += " active";
+					
+					//console.log(this.menuItem);
+					i++;
+				}
+				this.menuItem = i;
+			});
+
+			//this.changeItem(i);
+    }
+	
 	// function to go into sub-menus
 	inMenu = () => {
 		if (this.state.screen >= 1 && this.state.screen < 2) {
 			this.setState({
 				screen: this.state.screen + 1,
-				menu: 1
+				menu: this.menuItem
 			})
 		}
 	}
@@ -55,51 +97,6 @@ class App extends React.Component{
 		}
 	}
 
-
-	// change menu item list
-	changeItem = (item_no) => {
-		this.setState({
-			menuItem: item_no
-		})
-	}
-
-
-	//funtion to move over the menu items
-	move = () => {
-		
-			const containerElement = document.getElementById('wheel');
-			const activeRegion = ZingTouch.Region(containerElement);
-
-			const childElement = document.getElementById('wheel');
-
-			let list_item = document.getElementsByClassName('list')
-			let i = 0;
-
-			activeRegion.bind(childElement, 'rotate', function (event) {
-				//Perform Operations
-				console.log(event.detail);
-
-				if (event.detail.distanceFromLast > 4) {
-					//console.log(event.detail.distanceFromLast);
-
-					if (i >= list_item.length){
-						i = 0;
-						this.changeItem(i);
-					}			
-
-			
-					let current = document.getElementsByClassName("active");
-					current[0].className = current[0].className.replace(" active", "");
-					list_item[i].className += " active";
-					this.changeItem(i);
-					console.log(this.menuItem);
-					i++;
-				}
-
-			});
-
-    }
-	
 
 
   render(){

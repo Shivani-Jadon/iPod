@@ -1,40 +1,25 @@
 import React from 'react';
 import './App.css';
 
+
 function MenuScreen(props){
     return (
-        <ul id="menuList" style={styling.list} onLoad={props.pickMenu()}>
-                <li style={styling.item} className='list active'>
+        <ul id="menuList" className="list" onLoad={props.pickMenu()}>
+                <li className='list-items active'>
                     <span>Cover Flow</span> <span>&gt;</span>
                 </li>
-                <li style={styling.item} className='list'>
+                <li className='list-items'>
                         <span>Music</span> <span>&gt;</span>
                     </li>
-                <li style={styling.item} className='list'>
+                <li className='list-items'>
                         <span>Games</span> <span>&gt;</span>
                     </li>
-                <li style={styling.item} className='list'>
+                <li className='list-items'>
                     <span>Settings</span> <span>&gt;</span>
                 </li>
         </ul>
     )
 }
 
-let styling = {
-    list : {
-        listStyle : 'none',
-        padding : 0,
-        textAlign : 'justify',
-        background : '#a9a9a9b8',
-        margin : '10% 15%'
-    },
-    item : {
-        padding : 20,
-        boxShadow: "0 0 1px 0px black",
-        display : 'flex',
-        justifyContent : 'space-between',
-        fontWeight : 500
-    }
-}
 
 export default MenuScreen;

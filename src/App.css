@@ -12,6 +12,22 @@
   -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(250, 250, 250, 0.4)));
 }
 
+.list{
+  list-style : none;
+  padding : 0;
+  text-align : justify;
+  background : #a9a9a9b8;
+  margin : 10% 15%;
+}
+
+.list-items{
+  padding : 20px;
+  box-shadow: 0 0 1px 0px black;
+  display : flex;
+  justify-content : space-between;
+  font-weight : 500;
+}
+
 .active{
   background-color: #fffff0b5;
 }
