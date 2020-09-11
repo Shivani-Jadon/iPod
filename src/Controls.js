@@ -3,18 +3,30 @@ import './App.css';
 
 
 function Controls(props) {
+    const screen = props.screenLock;
     //the wheel div comprises of the outer buttuns of the controller
     return (
         <section id="control" style={styling.controlSection}>
         <div id="wheel" style={styling.container}>
-            <div id="menu-btn" style={styling.menuBtn} onClick={() => { props.onLock() } }>Menu</div>
+            <div id="menu-btn" style={styling.menuBtn} onClick={() => { 
+                if(screen === 1)
+                    return props.onLock()
+                else
+                    return props.exitMenu()
+            } }>Menu</div>
             <div id="back-btn" style={styling.backArrow}><i className="fas fa-fast-backward"></i></div>
             <div id="forward-btn" style={styling.forwardArrow}><i className="fas fa-fast-forward"></i></div>
             <div id="play-btn" style={styling.play_pause}>
                <i className="fas fa-play"></i>  <i className="fas fa-pause"></i> 
             </div>            
         </div>
-            <div id="okay-btn" style={styling.selectBtn} onClick={() => { props.onUnlock()} }></div>
+            <div id="okay-btn" style={styling.selectBtn} onClick={() => { 
+                if(screen < 1)
+                    return props.onUnlock()
+                else
+                    return props.enterMenu()
+                } }>
+            </div>
         </section>
     )
 }

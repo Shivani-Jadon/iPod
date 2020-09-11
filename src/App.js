@@ -11,9 +11,10 @@ class App extends React.Component{
 
 	this.state = {
 		screen: 0,
-		menu: 0
+		menu: 0,
+		menuItem: 0,
 	}
-  }
+}
 
   //function for unlocking the ipod if select-btn is pressed on lock screen
 	unlocking = () => {
@@ -31,6 +32,35 @@ class App extends React.Component{
 				screen: this.state.screen - 1
 			})
 		}
+	}
+
+
+	// function to go into sub-menus
+	inMenu = () => {
+		if (this.state.screen >= 1 && this.state.screen < 2) {
+			this.setState({
+				screen: this.state.screen + 1,
+				menu: 1
+			})
+		}
+	}
+
+	// function to come back from sub-menus
+	backMenu = () => {
+		if (this.state.screen >= 1) {
+			this.setState({
+				screen: this.state.screen - 1,
+				menu: 0
+			})
+		}
+	}
+
+
+	// change menu item list
+	changeItem = (item_no) => {
+		this.setState({
+			menuItem: item_no
+		})
 	}
 
 
@@ -52,13 +82,17 @@ class App extends React.Component{
 				if (event.detail.distanceFromLast > 4) {
 					//console.log(event.detail.distanceFromLast);
 
-					if (i >= list_item.length)
+					if (i >= list_item.length){
 						i = 0;
+						this.changeItem(i);
+					}			
 
+			
 					let current = document.getElementsByClassName("active");
 					current[0].className = current[0].className.replace(" active", "");
 					list_item[i].className += " active";
-
+					this.changeItem(i);
+					console.log(this.menuItem);
 					i++;
 				}
 
@@ -73,8 +107,8 @@ class App extends React.Component{
 	return (
 	  <div className="App">
 		<div className="ipod-frame">
-			<Screen screenLock={this.state.screen} pickMenu={this.move} />
-			<Controls onUnlock={this.unlocking} onLock={this.locking} />
+			<Screen screenLock={this.state.screen} menuScreen={this.state.menu} pickMenu={this.move} />
+			<Controls screenLock={this.state.screen} onUnlock={this.unlocking} onLock={this.locking} enterMenu={this.inMenu} exitMenu={this.backMenu}/>
 		</div>
 	  </div>
 	);

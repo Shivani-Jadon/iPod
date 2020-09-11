@@ -8,10 +8,10 @@ class Music extends React.Component {
         return (
             <ul id="MusicList" style={styling.list}>
                 <li style={styling.item} className='list active'>
-                    <span>Cover Flow</span> <span>&gt;</span>
+                    <span>Song 1</span> <span>&gt;</span>
                 </li>
                 <li style={styling.item} className='list'>
-                    <span>Music</span> <span>&gt;</span>
+                    <span>Song 2</span> <span>&gt;</span>
                 </li>
             </ul>
         )

@@ -8,10 +8,10 @@ class Settings extends React.Component {
         return (
             <ul id="settingsList" style={styling.list}>
                 <li style={styling.item} className='list active'>
-                    <span>Cover Flow</span> <span>&gt;</span>
+                    <span>Wallpaper</span> <span>&gt;</span>
                 </li>
                 <li style={styling.item} className='list'>
-                    <span>Music</span> <span>&gt;</span>
+                    <span>Themes</span> <span>&gt;</span>
                 </li>
             </ul>
         )
