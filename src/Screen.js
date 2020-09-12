@@ -17,7 +17,7 @@ const Screen = (props) => {
     return (
         <div id="ipod-screen" style={styling.frame}>
            
-            {unlock <= 1 ? (unlock > 0 ? <MenuScreen pickMenu={ props.pickMenu }/> : <LockScreen/>)
+            {unlock <= 1 ? (unlock > 0 ? <MenuScreen pickMenu={ props.pickMenu } menu_item={props.menu_item} changeMenu_State={props.changeMenu_State}/> : <LockScreen/>)
                         : (displayMenu === 0 ? <Coverflow/> : (displayMenu === 1 ? <Music/>
                                 : (displayMenu === 2 ? <Games/> : <Settings/>)  )
             )}

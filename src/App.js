@@ -12,7 +12,10 @@ class App extends React.Component{
 		this.state = {
 			screen: 0,
 			menu: 0,
+			menuItem: 0
 		}
+
+		this.changeMenu = this.changeMenu.bind(this);
 	}
 
   //function for unlocking the ipod if select-btn is pressed on lock screen
@@ -33,15 +36,18 @@ class App extends React.Component{
 		}
 	}
 
-
-	
-
 	// change menu item list
-	menuItem = 3;
+	changeMenu = (item) => {
+		//console.log("In changeMenu ",item);
+		this.setState({
+			menuItem : item
+		})
+		//console.log("state change : ",this.state.menuItem);
+	}
 
 
 	//funtion to move over the menu items
-	move = () => {
+	move = (changeMenu_State) => {
 		
 			const containerElement = document.getElementById('wheel');
 			const activeRegion = ZingTouch.Region(containerElement);
@@ -53,28 +59,26 @@ class App extends React.Component{
 
 			activeRegion.bind(childElement, 'rotate', function (event) {
 				//Perform Operations
-				console.log(event.detail);
+				// console.log(event.detail);
 
 				if (event.detail.distanceFromLast > 4) {
 					//console.log(event.detail.distanceFromLast);
 
 					if (i >= list_item.length){
 						i = 0;
-						this.menuItem = i;
+						changeMenu_State(i);
 					}			
 
 			
 					let current = document.getElementsByClassName("active");
 					current[0].className = current[0].className.replace(" active", "");
 					list_item[i].className += " active";
-					
-					//console.log(this.menuItem);
+					changeMenu_State(i);
 					i++;
 				}
-				this.menuItem = i;
+				
 			});
 
-			//this.changeItem(i);
     }
 	
 	// function to go into sub-menus
@@ -82,7 +86,7 @@ class App extends React.Component{
 		if (this.state.screen >= 1 && this.state.screen < 2) {
 			this.setState({
 				screen: this.state.screen + 1,
-				menu: this.menuItem
+				menu: this.state.menuItem
 			})
 		}
 	}
@@ -104,7 +108,8 @@ class App extends React.Component{
 	return (
 	  <div className="App">
 		<div className="ipod-frame">
-			<Screen screenLock={this.state.screen} menuScreen={this.state.menu} pickMenu={this.move} />
+			<Screen screenLock={this.state.screen} menuScreen={this.state.menu} pickMenu={this.move} menu_item={this.menuItem}
+			 changeMenu_State={this.changeMenu}/>
 			<Controls screenLock={this.state.screen} onUnlock={this.unlocking} onLock={this.locking} enterMenu={this.inMenu} exitMenu={this.backMenu}/>
 		</div>
 	  </div>
