@@ -4,12 +4,7 @@ import './App.css';
 class MenuScreen extends React.Component {
     constructor(props){
         super(props);
-        
-        // this.state = {
-        //     item_No : 0
-        // }
     }
-
 
     render() {
         return (

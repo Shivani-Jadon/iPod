@@ -62,8 +62,8 @@ class App extends React.Component{
 				//Perform Operations
 				// console.log(event.detail);
 
-				if (event.detail.distanceFromLast > 4) {
-					//console.log(event.detail.distanceFromLast);
+				if (event.detail.distanceFromLast > 3) {
+					console.log(event.detail.distanceFromLast);
 
 					if (i >= list_item.length){
 						i = 0;
@@ -94,10 +94,11 @@ class App extends React.Component{
 
 	// function to come back from sub-menus
 	backMenu = () => {
-		if (this.state.screen >= 1) {
+		if (this.state.screen > 0) {
 			this.setState({
 				screen: this.state.screen - 1,
-				menu: 0
+				menu: 0,
+				menuItem: 0
 			})
 		}
 	}
@@ -109,9 +110,10 @@ class App extends React.Component{
 	return (
 	  <div className="App">
 		<div className="ipod-frame">
-			<Screen screenLock={this.state.screen} menuScreen={this.state.menu} pickMenu={this.move} menu_item={this.menuItem}
+			<Screen screenLock={this.state.screen} menuScreen={this.state.menu} pickMenu={this.move}
 			 changeMenu_State={this.changeMenu}/>
-			<Controls screenLock={this.state.screen} onUnlock={this.unlocking} onLock={this.locking} enterMenu={this.inMenu} exitMenu={this.backMenu}/>
+			<Controls screenLock={this.state.screen} onUnlock={this.unlocking} onLock={this.locking}
+			 enterMenu={this.inMenu} exitMenu={this.backMenu}/>
 		</div>
 	  </div>
 	);

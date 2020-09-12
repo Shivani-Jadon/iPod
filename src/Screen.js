@@ -11,13 +11,13 @@ import Settings from './Settings';
 const Screen = (props) => {
     const unlock = props.screenLock;
     const displayMenu = props.menuScreen;
-    console.log("unlock = ",unlock);
-    console.log("Menu = ", displayMenu );
+    // console.log("unlock = ",unlock);
+    // console.log("Menu = ", displayMenu );
     
     return (
         <div id="ipod-screen" style={styling.frame}>
            
-            {unlock <= 1 ? (unlock > 0 ? <MenuScreen pickMenu={ props.pickMenu } menu_item={props.menu_item} changeMenu_State={props.changeMenu_State}/> : <LockScreen/>)
+            {unlock <= 1 ? (unlock > 0 ? <MenuScreen pickMenu={ props.pickMenu }  changeMenu_State={props.changeMenu_State}/> : <LockScreen/>)
                         : (displayMenu === 0 ? <Coverflow/> : (displayMenu === 1 ? <Music/>
                                 : (displayMenu === 2 ? <Games/> : <Settings/>)  )
             )}

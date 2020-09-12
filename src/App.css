@@ -30,6 +30,7 @@
 
 .active{
   background-color: #fffff0b5;
+  border: 2px white solid;
 }
 
 /*add hovering effect on wheel*/
