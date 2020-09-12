@@ -37,6 +37,7 @@ class App extends React.Component{
 	}
 
 	// change menu item list
+	// the function will be called from child components
 	changeMenu = (item) => {
 		//console.log("In changeMenu ",item);
 		this.setState({
