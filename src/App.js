@@ -16,48 +16,58 @@ class App extends React.Component{
 		super();
 
 		this.state = {
+			locked: true,
 			screen: 0,
 			menu: 0,
 			menuItem: 0
 		}
 
 		this.changeMenu = this.changeMenu.bind(this);
+		console.log(this.state);
 	}
 
   //function for unlocking the ipod if select-btn is pressed on lock screen
 	unlocking = () => {
-		if (this.state.screen === 0) {
+		if (this.state.locked === true) {
 			this.setState({
+				locked: false,
 				screen: this.state.screen + 1
-			})
-        }	  
+			}, 
+				() => {console.log("Locked Screen : ", this.state.locked); }
+			)
+			
+		}	
+		 
 	}
 
   //function for locking the ipod if menu-btn is pressed on main menu
 	locking = () => {
-		if (this.state.screen === 1) {
+		if (this.state.locked === false) {
 			this.setState({
+				locked: true,
 				screen: this.state.screen - 1
-			})
+			},
+				() => {console.log("Locked Screen : ", this.state.locked);}
+			
+			)
 		}
 	}
 
 	// change menu item list
 	// the function will be called from child components
 	changeMenu = (item) => {
+		
 		//console.log("In changeMenu ",item);
 		this.setState({
 			menuItem : item
 		})
-		//console.log("state change : ",this.state.menuItem);
+		console.log("state change : ",this.state.menuItem);
 	}
 
 
 	//funtion to move over the menu items
 	move = (changeMenu_State) => {
 		
-		if(this.state.screen >= 1)
-		{
 			const containerElement = document.getElementById('wheel');
 			const activeRegion = ZingTouch.Region(containerElement);
 
@@ -69,33 +79,32 @@ class App extends React.Component{
 			activeRegion.bind(childElement, 'rotate', function (event) {
 				//Perform Operations
 				// console.log(event.detail);
-
-				if (event.detail.distanceFromLast > 3) {
-					console.log(event.detail.distanceFromLast);
-
+				
+				if (event.detail.distanceFromLast > 4) {
+					// console.log(event.detail.distanceFromLast);
+				
 					if (i >= list_item.length){
 						i = 0;
 						changeMenu_State(i);
 					}			
 
-			
-					let current = document.getElementsByClassName("active");
-					current[0].className = current[0].className.replace(" active", "");
-					list_item[i].className += " active";
 					changeMenu_State(i);
 					i++;
+					
 				}
 				
-			});
-
-		}
+			})
     }
 	
 	// function to go into sub-menus
 	inMenu = () => {
+		if(this.state.screen < 3){
+			this.setState({
+				screen: this.state.screen + 1
+			})
+		}
 		if (this.state.screen >= 1 && this.state.screen < 2) {
 			this.setState({
-				screen: this.state.screen + 1,
 				menu: this.state.menuItem
 			})
 		}
@@ -176,9 +185,9 @@ class App extends React.Component{
 	return (
 	  <div className="App">
 		<div className="ipod-frame">
-			<Screen screenLock={this.state.screen} menuScreen={this.state.menu} pickMenu={this.move}
-			 changeMenu_State={this.changeMenu}/>
-			<Controls screenLock={this.state.screen} onUnlock={this.unlocking} onLock={this.locking}
+			<Screen lock={this.state.locked} screenLock={this.state.screen} menuScreen={this.state.menu} pickMenu={this.move}
+			 menuItem={this.state.menuItem} changeMenu_State={this.changeMenu}/>
+			<Controls lock={this.state.locked} screenLock={this.state.screen} onUnlock={this.unlocking} onLock={this.locking}
 			 enterMenu={this.inMenu} exitMenu={this.backMenu}/>
 		</div>
 	  </div>

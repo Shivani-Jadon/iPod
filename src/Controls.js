@@ -9,7 +9,7 @@ function Controls(props) {
         <section id="control" style={styling.controlSection}>
         <div id="wheel" style={styling.container}>
             <div id="menu-btn" style={styling.menuBtn} onClick={() => { 
-                if(screen === 1)
+                if(props.lock === false && screen === 1)
                     return props.onLock()
                 else
                     return props.exitMenu()
@@ -21,9 +21,9 @@ function Controls(props) {
             </div>            
         </div>
             <div id="okay-btn" style={styling.selectBtn} onClick={() => { 
-                if(screen < 1)
+                if(props.lock === true)
                     return props.onUnlock()
-                else
+                else if(screen >= 1)
                     return props.enterMenu()
                 } }>
             </div>
