@@ -5,14 +5,22 @@ import './App.css';
 class Settings extends React.Component {
 
     render() {
+        let menuItem = this.props.menuItem;
+        let menuList = ['Themes', 'Wallpaper'];
+        let menuElement = [];
+
+        for(let m=0; m < menuList.length; m++){
+            menuElement.push(  m === menuItem ? <li className='list-items active'>
+                                <span>{menuList[m]}</span> <span>&gt;</span>
+                            </li> : 
+                            <li className='list-items'>
+                                <span>{menuList[m]}</span> <span>&gt;</span>
+                            </li>   );
+        }
+
         return (
             <ul id="settingsList" className='list'>
-                <li className='list-items active'>
-                    <span>Wallpaper</span> <span>&gt;</span>
-                </li>
-                <li className='list-items'>
-                    <span>Themes</span> <span>&gt;</span>
-                </li>
+                {   menuElement }
             </ul>
         )
     }

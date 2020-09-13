@@ -7,25 +7,25 @@ import cover4 from './assets/images/cover4.jpg';
 
 class Coverflow extends React.Component{
     
-    changeCover() {
-
-    }
-
+    
     render() {
+
+        let menuItem = this.props.menuItem;
+        let menuList = [cover1, cover2, cover3, cover4];
+        let menuElement = [];
+
+        for(let m=0; m < menuList.length; m++){
+            menuElement.push(  m === menuItem ? <li className='covers list-items active' style={styling.cover} >
+                                                    <img src={menuList[m]} alt='cover1' style={styling.image} />
+                                                </li> :
+                            <li className='covers list-items' style={styling.cover} >
+                                <img src={menuList[m]} alt='cover2' style={styling.image} />
+                            </li>);
+        }
+
         return (
             <ul id="coverflow-container" style={styling.container} className='list' >
-                <li className='covers list-items active' style={styling.cover} >
-                    <img src={cover1} alt='cover1' style={styling.image} />
-                </li>
-                <li className='covers list-items' style={styling.cover} >
-                    <img src={cover2} alt='cover2' style={styling.image} />
-                </li>
-                <li className='covers list-items' style={styling.cover} >
-                    <img src={cover3} alt='cover3' style={styling.image} />
-                </li>
-                <li className='covers list-items' style={styling.cover} >
-                    <img src={cover4} alt='cover4' style={styling.image} />
-                </li>
+                {   menuElement }
             </ul>
         )
     }

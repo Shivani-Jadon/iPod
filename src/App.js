@@ -32,10 +32,7 @@ class App extends React.Component{
 			this.setState({
 				locked: false,
 				screen: this.state.screen + 1
-			}, 
-				() => {console.log("Locked Screen : ", this.state.locked); }
-			)
-			
+			})
 		}	
 		 
 	}
@@ -46,10 +43,7 @@ class App extends React.Component{
 			this.setState({
 				locked: true,
 				screen: this.state.screen - 1
-			},
-				() => {console.log("Locked Screen : ", this.state.locked);}
-			
-			)
+			})
 		}
 	}
 
@@ -60,8 +54,7 @@ class App extends React.Component{
 		//console.log("In changeMenu ",item);
 		this.setState({
 			menuItem : item
-		})
-		console.log("state change : ",this.state.menuItem);
+		}, () => console.log("state change : ",this.state.menuItem))		
 	}
 
 

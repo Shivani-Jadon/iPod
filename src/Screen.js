@@ -28,13 +28,13 @@ const Screen = (props) => {
         }
     }else if(screen === 2){
         if(displayMenu === 0){
-            displayScreen = <Coverflow/>;
+            displayScreen = <Coverflow  menuItem={props.menuItem}  />;
         }else if(displayMenu === 1){
-            displayScreen = <Music/>;
+            displayScreen = <Music  menuItem={props.menuItem}  />;
         }else if(displayMenu === 2){
-            displayScreen = <Games/>;
+            displayScreen = <Games   menuItem={props.menuItem}  />;
         }else{
-            displayScreen = <Settings/>;
+            displayScreen = <Settings    menuItem={props.menuItem}  />;
         }
     }else if( screen === 3 ){
         if(displayMenu === 0){
