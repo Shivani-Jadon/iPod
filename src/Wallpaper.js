@@ -3,6 +3,10 @@ import './App.css';
 
 class Wallpaper extends React.Component {
 
+    componentDidMount(){
+        this.props.changeWallpaper(this.props.screen, this.props.menu, this.props.menuItem);
+    }
+
     componentDidUpdate(){
         this.props.changeWallpaper(this.props.screen, this.props.menu, this.props.menuItem);
     }

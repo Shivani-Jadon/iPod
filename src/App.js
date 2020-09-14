@@ -19,7 +19,8 @@ class App extends React.Component{
 			locked: true,
 			screen: 0,
 			menu: 0,
-			menuItem: 0
+			menuItem: 0,
+			options: 0
 		}
 
 		this.changeMenu = this.changeMenu.bind(this);
@@ -54,7 +55,7 @@ class App extends React.Component{
 		//console.log("In changeMenu ",item);
 		this.setState({
 			menuItem : item
-		}, () => console.log("state change : ",this.state.menuItem))		
+		})		
 	}
 
 
@@ -118,6 +119,11 @@ class App extends React.Component{
 				menu: this.state.menuItem
 			})
 		}
+		if(this.state.screen === 2 && this.state.menu === 3){
+			this.setState({
+				options: this.state.menuItem
+			}, () => console.log("state change : ",this.state.menuItem))
+		}
 	}
 
 	// function to come back from sub-menus
@@ -142,23 +148,25 @@ class App extends React.Component{
 
 
 	// function for changing themes
-	changeTheme = (screen, menu) => {
-		if(screen === 3 && menu === 3 && this.state.menuItem === 0 ){
+	changeTheme = (screen, menu, menuItem) => {
+		if(screen === 3 && menu === 3){
 			
-			const select_btn = document.getElementById('#okay-btn'); 
+			const select_btn = document.getElementById('okay-btn'); 
 
 			select_btn.addEventListener('click', function(){
-				let selected_theme = this.state.menuItem;
+				let selected_theme = menuItem;
 
 				if(selected_theme === 0)
 				{
-					document.getElementsByClassName('ipod-frame').style.background = 'black';
-					document.getElementById('control').style.background = 'grey';
-					document.getElementById('control').style.color = 'white';
+					document.getElementsByClassName('ipod-frame')[0].style.background = 'rgb(74 72 72)';
+					document.getElementById('wheel').style.background = 'black';
+					document.getElementById('wheel').style.color = 'rgb(74 72 72)';
+					select_btn.style.background = 'rgb(74 72 72)';
 				}else{
-					document.getElementsByClassName('ipod-frame').style.background = 'grey';
-					document.getElementById('control').style.background = 'white';
-					document.getElementById('control').style.color = 'grey';
+					document.getElementsByClassName('ipod-frame')[0].style.background = 'silver';
+					document.getElementById('wheel').style.background = 'ivory';
+					document.getElementById('wheel').style.color = 'rgb(158 158 158)';
+					select_btn.style.background = 'silver';
 				}
 			})
 		}
@@ -205,7 +213,8 @@ class App extends React.Component{
 	  <div className="App">
 		<div className="ipod-frame">
 			<Screen lock={this.state.locked} screenLock={this.state.screen} menuScreen={this.state.menu} pickMenu={this.move}
-			 menuItem={this.state.menuItem} changeMenu_State={this.changeMenu}	changeWallpaper={this.changeWallpaper}	/>
+			 		menuItem={this.state.menuItem} changeMenu_State={this.changeMenu} option={this.state.options}
+			 		changeWallpaper={this.changeWallpaper}	changeTheme={this.changeTheme}/>
 			<Controls lock={this.state.locked} screenLock={this.state.screen} onUnlock={this.unlocking} onLock={this.locking}
 			 enterMenu={this.inMenu} exitMenu={this.backMenu}/>
 		</div>

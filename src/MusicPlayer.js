@@ -37,7 +37,7 @@ const styling = {
         width: '100%'
     },
     audioControl : {
-        marginTop : -20,
+        marginTop : -60,
         width: '100%'
     }
 }
