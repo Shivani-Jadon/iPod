@@ -66,13 +66,16 @@ class App extends React.Component{
 
 			const childElement = document.getElementById('wheel');
 
-			let list_item = document.getElementsByClassName('list-items')
+			let list_item = document.getElementsByClassName('list-items');
+			let len = list_item.length;
 			let i = 0;
+			let j = len;
 
 			activeRegion.bind(childElement, 'rotate', function (event) {
 				//Perform Operations
-				// console.log(event.detail);
+				console.log(event.detail);
 				
+				// rotation function for clockwise direction
 				if (event.detail.distanceFromLast > 4) {
 					// console.log(event.detail.distanceFromLast);
 				
@@ -83,6 +86,20 @@ class App extends React.Component{
 
 					changeMenu_State(i);
 					i++;
+					
+				}
+
+				// rotation function for anti-clockwise direction
+				if (event.detail.distanceFromLast < -4) {
+					// console.log(event.detail.distanceFromLast);
+				
+					if (j <= 0){
+						j = len - 1;
+						changeMenu_State(j);
+					}			
+
+					changeMenu_State(j);
+					j--;
 					
 				}
 				
