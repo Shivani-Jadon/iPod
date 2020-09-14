@@ -1,31 +1,44 @@
 import React from 'react';
 import './App.css';
 
-
 class Wallpaper extends React.Component {
 
+    componentDidUpdate(){
+        this.props.changeWallpaper(this.props.screen, this.props.menu, this.props.menuItem);
+    }
+
     render() {
+
+        let menuItem = this.props.menuItem;
+        let wallpaperList = ['Space', 'Metal', 'Nature', 'Sunset', 'Spritual'];
+        let menuElement = [];
+
+
+        for(let m=0; m < wallpaperList.length; m++){
+            menuElement.push(  m === menuItem ? <li className='list-items active' style={styling.listItem}>
+                                {wallpaperList[m]}
+                            </li> : 
+                            <li className='list-items' style={styling.listItem}>
+                                {wallpaperList[m]}
+                            </li>   );
+        }
+
         return (
-            <ul id="WallpaperList" className='list'>
-                <li className='list-items active'>
-                    <span>Space</span> <span>&gt;</span>
-                </li>
-                <li className='list-items'>
-                    <span>Metal</span> <span>&gt;</span>
-                </li>
-                <li className='list-items'>
-                    <span>Nature</span> <span>&gt;</span>
-                </li>
-                <li className='list-items'>
-                    <span>Sunset</span> <span>&gt;</span>
-                </li>
-                <li className='list-items'>
-                    <span>Spritual</span> <span>&gt;</span>
-                </li>
+            <ul id="WallpaperList" className='list' style={styling.list}>
+                {   menuElement }
             </ul>
         )
     }
 }
 
+
+let styling = {
+    list : {
+        margin : 0
+    },
+    listItem : {
+        justifyContent : 'center'
+    }
+}
 
 export default Wallpaper;

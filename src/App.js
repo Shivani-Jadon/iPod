@@ -142,8 +142,8 @@ class App extends React.Component{
 
 
 	// function for changing themes
-	changeTheme = () => {
-		if(this.state.screen === 3 && this.state.menu === 3 && this.state.menuItem === 0 ){
+	changeTheme = (screen, menu) => {
+		if(screen === 3 && menu === 3 && this.state.menuItem === 0 ){
 			
 			const select_btn = document.getElementById('#okay-btn'); 
 
@@ -165,15 +165,19 @@ class App extends React.Component{
 	}
 
 	// function for changing wallpaper
-	changeWallpaper = () => {
+	changeWallpaper = (screen, menu, menuItem) => {
 
-		if(this.state.screen === 3 && this.state.menu === 3 && this.state.menuItem === 1 ){
+		console.log("wallpaper");
 
-			const select_btn = document.getElementById('#okay-btn'); 
+		if(screen === 3 && menu === 3){
+
+			console.log("In change wallpaper");
+
+			const select_btn = document.getElementById('okay-btn'); 
 
 			select_btn.addEventListener('click', function(){
 
-				let selected_wallpaper = this.state.menuItem;
+				let selected_wallpaper = menuItem;
 
 				switch(selected_wallpaper)
 				{
@@ -201,7 +205,7 @@ class App extends React.Component{
 	  <div className="App">
 		<div className="ipod-frame">
 			<Screen lock={this.state.locked} screenLock={this.state.screen} menuScreen={this.state.menu} pickMenu={this.move}
-			 menuItem={this.state.menuItem} changeMenu_State={this.changeMenu}/>
+			 menuItem={this.state.menuItem} changeMenu_State={this.changeMenu}	changeWallpaper={this.changeWallpaper}	/>
 			<Controls lock={this.state.locked} screenLock={this.state.screen} onUnlock={this.unlocking} onLock={this.locking}
 			 enterMenu={this.inMenu} exitMenu={this.backMenu}/>
 		</div>
