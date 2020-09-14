@@ -1,23 +1,31 @@
 {
   "files": {
-    "main.css": "/iPod/static/css/main.c7f792e4.chunk.css",
-    "main.js": "/iPod/static/js/main.1f491d77.chunk.js",
-    "main.js.map": "/iPod/static/js/main.1f491d77.chunk.js.map",
+    "main.css": "/iPod/static/css/main.75c5dafa.chunk.css",
+    "main.js": "/iPod/static/js/main.86b0b11f.chunk.js",
+    "main.js.map": "/iPod/static/js/main.86b0b11f.chunk.js.map",
     "runtime-main.js": "/iPod/static/js/runtime-main.3a9395a1.js",
     "runtime-main.js.map": "/iPod/static/js/runtime-main.3a9395a1.js.map",
-    "static/js/2.ad50fcb7.chunk.js": "/iPod/static/js/2.ad50fcb7.chunk.js",
-    "static/js/2.ad50fcb7.chunk.js.map": "/iPod/static/js/2.ad50fcb7.chunk.js.map",
+    "static/js/2.b9b604df.chunk.js": "/iPod/static/js/2.b9b604df.chunk.js",
+    "static/js/2.b9b604df.chunk.js.map": "/iPod/static/js/2.b9b604df.chunk.js.map",
     "index.html": "/iPod/index.html",
-    "precache-manifest.e3e539a25c8792c0a9c7539a5d6d5da4.js": "/iPod/precache-manifest.e3e539a25c8792c0a9c7539a5d6d5da4.js",
+    "precache-manifest.eee79f519fefcca389816cf93f625f7b.js": "/iPod/precache-manifest.eee79f519fefcca389816cf93f625f7b.js",
     "service-worker.js": "/iPod/service-worker.js",
-    "static/css/main.c7f792e4.chunk.css.map": "/iPod/static/css/main.c7f792e4.chunk.css.map",
-    "static/js/2.ad50fcb7.chunk.js.LICENSE.txt": "/iPod/static/js/2.ad50fcb7.chunk.js.LICENSE.txt",
+    "static/css/main.75c5dafa.chunk.css.map": "/iPod/static/css/main.75c5dafa.chunk.css.map",
+    "static/js/2.b9b604df.chunk.js.LICENSE.txt": "/iPod/static/js/2.b9b604df.chunk.js.LICENSE.txt",
+    "static/media/Andhadhun.mp3": "/iPod/static/media/Andhadhun.daff6f14.mp3",
+    "static/media/Laila_Laila.mp3": "/iPod/static/media/Laila_Laila.5f7f0e0e.mp3",
+    "static/media/Qaafirana.mp3": "/iPod/static/media/Qaafirana.549955a5.mp3",
+    "static/media/dice.gif": "/iPod/static/media/dice.91a5892b.gif",
+    "static/media/rabbit.gif": "/iPod/static/media/rabbit.35f780a1.gif",
+    "static/media/song_cover1.jpg": "/iPod/static/media/song_cover1.94efff6f.jpg",
+    "static/media/song_cover2.jpg": "/iPod/static/media/song_cover2.9c6f9d77.jpg",
+    "static/media/song_cover3.jpg": "/iPod/static/media/song_cover3.2020e5b7.jpg",
     "static/media/wallpaper5.jpg": "/iPod/static/media/wallpaper5.cac05775.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.3a9395a1.js",
-    "static/js/2.ad50fcb7.chunk.js",
-    "static/css/main.c7f792e4.chunk.css",
-    "static/js/main.1f491d77.chunk.js"
+    "static/js/2.b9b604df.chunk.js",
+    "static/css/main.75c5dafa.chunk.css",
+    "static/js/main.86b0b11f.chunk.js"
   ]
 }
