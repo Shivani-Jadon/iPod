@@ -11,6 +11,7 @@ import Settings from './Settings';
 // importing sub menu screens
 import Cover from './Cover';
 import MusicPlayer from './MusicPlayer';
+import GamePlayer from './GamePlayer';
 import Theme from './Theme';
 import Wallpaper from './Wallpaper';
 
@@ -44,7 +45,10 @@ const Screen = (props) => {
             displayScreen = <Cover menuItem={props.menuItem}/>;
         }else if(displayMenu === 1){
             displayScreen = <MusicPlayer menuItem={props.menuItem}/>;
-        }else{
+        }else if(displayMenu === 2){
+            displayScreen = <GamePlayer menuItem={props.menuItem}/>;
+        }
+        else{
             if(props.option === 0){
                 displayScreen = <Theme menuItem={props.menuItem} changeTheme={props.changeTheme}
                             screen={screen} menu={displayMenu} />;

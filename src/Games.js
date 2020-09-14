@@ -9,10 +9,10 @@ const Games = (props) =>  {
 
     for(let m=0; m < menuList.length; m++){
         menuElement.push(  m === menuItem ? <li className='list-items active'>
-                            <span>{menuList[m]}</span> <span>&gt;</span>
+                            <span>{menuList[m]}</span> <span><img style={styling.icons}  src="https://www.flaticon.com/premium-icon/icons/svg/2969/2969711.svg" alt='>'/></span>
                         </li> : 
                         <li className='list-items'>
-                            <span>{menuList[m]}</span> <span>&gt;</span>
+                            <span>{menuList[m]}</span> <span><img style={styling.icons}  src="https://www.flaticon.com/premium-icon/icons/svg/2969/2969711.svg" alt='>'/></span>
                         </li>   );
     }
 
@@ -23,5 +23,10 @@ const Games = (props) =>  {
     )
 }
 
+let styling = {
+    icons : {
+        width: 15
+    }
+}
 
 export default Games;

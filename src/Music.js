@@ -11,10 +11,10 @@ class Music extends React.Component {
 
         for(let m=0; m < menuList.length; m++){
             menuElement.push(  m === menuItem ? <li className='list-items active'>
-                                <span>{menuList[m]}</span> <span>&gt;</span>
+                                <span>{menuList[m]}</span> <span><img style={styling.icons}  src="https://www.flaticon.com/svg/static/icons/svg/3039/3039386.svg" alt='>'/></span>
                             </li> : 
                             <li className='list-items'>
-                                <span>{menuList[m]}</span> <span>&gt;</span>
+                                <span>{menuList[m]}</span> <span><img style={styling.icons}  src="https://www.flaticon.com/svg/static/icons/svg/3039/3039386.svg" alt='>'/></span>
                             </li>   );
         }
 
@@ -26,5 +26,10 @@ class Music extends React.Component {
     }
 }
 
+let styling = {
+    icons : {
+        width: 15
+    }
+}
 
 export default Music;

@@ -21,7 +21,7 @@
 }
 
 .list-items{
-  padding : 20px;
+  padding : 15px;
   box-shadow: 0 0 1px 0px black;
   display : flex;
   justify-content : space-between;

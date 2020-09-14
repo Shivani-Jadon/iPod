@@ -14,23 +14,32 @@ class Theme extends React.Component {
 
     render() {
         let menuItem = this.props.menuItem;
-        let menuList = ['Dark', 'Light'];
+        let menuList = ['Dark', 'Classic'];
         let menuElement = [];
 
         for(let m=0; m < menuList.length; m++){
-            menuElement.push(  m === menuItem ? <li className='list-items active'>
+            menuElement.push(  m === menuItem ? <li className='list-items active' style={styling.listItem}>
                                 {menuList[m]}
                             </li> : 
-                            <li className='list-items'>
+                            <li className='list-items' style={styling.listItem}>
                                 {menuList[m]}
                             </li>   );
         }
 
         return (
-            <ul id="MusicList" className='list'>
+            <ul id="MusicList" className='list' style={styling.list}>
                 {   menuElement }
             </ul>
         )
+    }
+}
+
+let styling = {
+    list : {
+        margin : 0
+    },
+    listItem : {
+        justifyContent : 'center'
     }
 }
 

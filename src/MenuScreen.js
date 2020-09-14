@@ -18,15 +18,18 @@ class MenuScreen extends React.Component {
         // rendering the list dynamically
         let menuItem = this.props.menuItem;
         let menuList = ['Cover Flow', 'Music', 'Games', 'Settings'];
-
+        let icon = ['https://www.flaticon.com/svg/static/icons/svg/2404/2404718.svg',
+                    'https://www.flaticon.com/svg/static/icons/svg/727/727218.svg',
+                    'https://www.flaticon.com/svg/static/icons/svg/13/13973.svg',
+                    'https://www.flaticon.com/svg/static/icons/svg/1242/1242392.svg']
         let menuElement = [];
 
         for(let m=0; m < menuList.length; m++){
             menuElement.push(  m === menuItem ? <li className='list-items active'>
-                                <span>{menuList[m]}</span> <span>&gt;</span>
+                                <span>{menuList[m]}</span> <span><img style={styling.icons}  src={icon[m]} alt='>'/></span>
                             </li> : 
                             <li className='list-items'>
-                                <span>{menuList[m]}</span> <span>&gt;</span>
+                                <span>{menuList[m]}</span> <span><img style={styling.icons}  src={icon[m]} alt='>'/></span>
                             </li>   );
         }
 
@@ -38,5 +41,10 @@ class MenuScreen extends React.Component {
     }
 }
 
+let styling = {
+    icons : {
+        width: 15
+    }
+}
 
 export default MenuScreen;

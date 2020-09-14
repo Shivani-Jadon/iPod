@@ -11,10 +11,10 @@ class Settings extends React.Component {
 
         for(let m=0; m < menuList.length; m++){
             menuElement.push(  m === menuItem ? <li className='list-items active'>
-                                <span>{menuList[m]}</span> <span>&gt;</span>
+                                <span>{menuList[m]}</span> <span><img style={styling.icons}  src="https://www.flaticon.com/svg/static/icons/svg/945/945147.svg" alt='>'/></span>
                             </li> : 
                             <li className='list-items'>
-                                <span>{menuList[m]}</span> <span>&gt;</span>
+                                <span>{menuList[m]}</span> <span><img style={styling.icons}  src="https://www.flaticon.com/svg/static/icons/svg/945/945147.svg" alt='>'/></span>
                             </li>   );
         }
 
@@ -23,6 +23,12 @@ class Settings extends React.Component {
                 {   menuElement }
             </ul>
         )
+    }
+}
+
+let styling = {
+    icons : {
+        width: 15
     }
 }
 
