@@ -1,13 +1,12 @@
 import React from 'react';
 import './App.css';
 
-
 class Music extends React.Component {
 
     render() {
 
         let menuItem = this.props.menuItem;
-        let menuList = ['Song1', 'Song2'];
+        let menuList = ['Andhadhun', 'Quafirana', 'Laila-Laila'];
         let menuElement = [];
 
         for(let m=0; m < menuList.length; m++){

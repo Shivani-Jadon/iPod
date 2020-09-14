@@ -73,7 +73,7 @@ class App extends React.Component{
 
 			activeRegion.bind(childElement, 'rotate', function (event) {
 				//Perform Operations
-				console.log(event.detail);
+				// console.log(event.detail);
 				
 				// rotation function for clockwise direction
 				if (event.detail.distanceFromLast > 4) {
@@ -124,15 +124,20 @@ class App extends React.Component{
 	backMenu = () => {
 		if (this.state.screen > 0) {
 			this.setState({
-				screen: this.state.screen - 1,
-				menuItem: 0
+				screen: this.state.screen - 1,	
+				menuItem: 0			
 			})
 		}
-		if (this.state.screen > 0 && this.state.menu <= 2) {
+		if (this.state.screen > 0 && this.state.screen <= 1) {
 			this.setState({
 				menu : 0
 			})
 		}
+		// if(this.state.screen >0 && this.state.screen < 2){
+		// 	this.setState({
+				
+		// 	})
+		// }
 	}
 
 

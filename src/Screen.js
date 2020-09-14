@@ -37,8 +37,8 @@ const Screen = (props) => {
             displayScreen = <Settings    menuItem={props.menuItem}  />;
         }
     }else if( screen === 3 ){
-        if(displayMenu === 0){
-            displayScreen = <MusicPlayer/>;
+        if(displayMenu === 1){
+            displayScreen = <MusicPlayer menuItem={props.menuItem}/>;
         }
     }
     
