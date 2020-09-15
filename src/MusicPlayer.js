@@ -11,8 +11,28 @@ import image3 from './assets/images/song_cover2.jpg';
 
 class MusicPlayer extends React.Component{
 
+    constructor(props){
+        super(props);
+
+        this.state = {
+            song : [song1, song2, song3],
+            cover : [image1, image2, image3]
+        }
+    }
+
     componentDidMount(){
         this.props.playPauseAudio(this.props.screen, this.props.menu);
+        this.props.playNext(this.props.screen, this.props.menu, this.props.menuItem,
+             this.state.cover, this.state.song, this.props.changeMenuState);
+        this.props.playPrev(this.props.screen, this.props.menu, this.props.menuItem,
+        this.state.cover, this.state.song, this.props.changeMenuState);
+    }
+
+    componentDidUpdate(){
+        this.props.playNext(this.props.screen, this.props.menu, this.props.menuItem,
+            this.state.cover, this.state.song, this.props.changeMenuState);
+        this.props.playPrev(this.props.screen, this.props.menu, this.props.menuItem,
+            this.state.cover, this.state.song, this.props.changeMenuState);
     }
 
     componentWillUnmount(){
@@ -21,16 +41,13 @@ class MusicPlayer extends React.Component{
 
     render() {
 
-        let song = [song1, song2, song3];
-        let cover = [image1, image2, image3];
-
         return (
             <div>
                 <div style={styling.imageCont}>
-                    <img src={cover[this.props.menuItem]} alt="Song1" style={styling.image} />
+                    <img id='song-cover' src={this.state.cover[this.props.menuItem]} alt="Song1" style={styling.image} />
                 </div>
                 <audio id='player' className='active-song'   style={styling.audioControl} controls>
-                    <source src={song[this.props.menuItem]} type="audio/mp3"   />
+                    <source id='song-source' src={this.state.song[this.props.menuItem]} type="audio/mp3"   />
                 </audio>
             </div>
         )

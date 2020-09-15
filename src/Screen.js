@@ -45,7 +45,8 @@ const Screen = (props) => {
             displayScreen = <Cover menuItem={props.menuItem}/>;
         }else if(displayMenu === 1){
             displayScreen = <MusicPlayer menuItem={props.menuItem} playPauseAudio={props.playPauseAudio}
-                            screen={screen} menu={displayMenu} />;
+                                        playNext={props.playNext} playPrev={props.playPrev}       
+                                        changeMenuState={props.changeMenu_State} screen={screen} menu={displayMenu} />;
         }else if(displayMenu === 2){
             displayScreen = <GamePlayer menuItem={props.menuItem}/>;
         }

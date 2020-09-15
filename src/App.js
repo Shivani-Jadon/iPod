@@ -210,7 +210,7 @@ class App extends React.Component{
 	// function for play/pausing the audio with play/pause button on controls
 	playPauseAudio = (screen, menu) => {
 		if(screen === 3 && menu === 1){
-			console.log("Play/Pause audio");
+			
 			const playBtn = document.getElementById('play-btn');
 			let song = document.getElementById('player');
 
@@ -226,6 +226,55 @@ class App extends React.Component{
 		}
 	}
 
+
+	// function to play next song through controls
+	playNext = (screen, menu, menuItem, coverList, songList, changeMenuState) => {
+		if(screen === 3 && menu === 1){
+			const nextBtn = document.getElementById('next-btn');
+
+			let songPlayer = document.getElementById('player');
+
+			nextBtn.addEventListener('click', () => {
+
+				if(menuItem === coverList.length-1){
+					document.getElementById('song-cover').setAttribute('src',coverList[0] );
+					songPlayer.src = songList[0];
+					changeMenuState(0);
+				}else{
+					document.getElementById('song-cover').setAttribute('src',coverList[menuItem + 1] );
+					songPlayer.src = songList[menuItem + 1];
+					changeMenuState(menuItem + 1);
+				}
+
+				
+			})
+		}
+	}
+	
+	// function to play previous song through controls
+	playPrev = (screen, menu, menuItem, coverList, songList, changeMenuState) => {
+
+		if(screen === 3 && menu === 1){
+			const prevBtn = document.getElementById('prev-btn');
+
+			let songPlayer = document.getElementById('player');
+
+			prevBtn.addEventListener('click', () => {
+
+				if(menuItem === 0){
+					document.getElementById('song-cover').setAttribute('src',coverList[coverList.length-1] );
+					songPlayer.src = songList[coverList.length-1];
+					changeMenuState(coverList.length-1);
+				}else{
+					document.getElementById('song-cover').setAttribute('src',coverList[menuItem - 1] );
+					songPlayer.src = songList[menuItem - 1];
+					changeMenuState(menuItem - 1);
+				}				
+			})
+		}
+	}
+
+
   render(){
 	//const unlock = this.state.unlock;
 	return (
@@ -234,7 +283,8 @@ class App extends React.Component{
 			<Screen lock={this.state.locked} screenLock={this.state.screen} menuScreen={this.state.menu} pickMenu={this.move}
 			 		menuItem={this.state.menuItem} changeMenu_State={this.changeMenu} option={this.state.options}
 			 		changeWallpaper={this.changeWallpaper}	changeTheme={this.changeTheme}
-					playPauseAudio={this.playPauseAudio}/>
+					playPauseAudio={this.playPauseAudio} playNext={this.playNext} playPrev={this.playPrev}	/>
+
 			<Controls lock={this.state.locked} screenLock={this.state.screen} onUnlock={this.unlocking} onLock={this.locking}
 			 enterMenu={this.inMenu} exitMenu={this.backMenu}/>
 		</div>
