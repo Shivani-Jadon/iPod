@@ -14,8 +14,8 @@ function Controls(props) {
                 else
                     return props.exitMenu()
             } }>Menu</div>
-            <div id="back-btn" style={styling.backArrow}><i className="fas fa-fast-backward"></i></div>
-            <div id="forward-btn" style={styling.forwardArrow}><i className="fas fa-fast-forward"></i></div>
+            <div id="prev-btn" style={styling.backArrow}><i className="fas fa-backward"></i></div>
+            <div id="forward-btn" style={styling.forwardArrow}><i className="fas fa-forward"></i></div>
             <div id="play-btn" style={styling.play_pause}>
                <i className="fas fa-play"></i>  <i className="fas fa-pause"></i> 
             </div>            

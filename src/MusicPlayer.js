@@ -11,6 +11,14 @@ import image3 from './assets/images/song_cover2.jpg';
 
 class MusicPlayer extends React.Component{
 
+    componentDidMount(){
+        this.props.playPauseAudio(this.props.screen, this.props.menu);
+    }
+
+    componentWillUnmount(){
+        document.getElementById('player').classList.remove('active-song');
+    }
+
     render() {
 
         let song = [song1, song2, song3];
@@ -21,7 +29,7 @@ class MusicPlayer extends React.Component{
                 <div style={styling.imageCont}>
                     <img src={cover[this.props.menuItem]} alt="Song1" style={styling.image} />
                 </div>
-                <audio style={styling.audioControl} controls >
+                <audio id='player' className='active-song'   style={styling.audioControl} controls>
                     <source src={song[this.props.menuItem]} type="audio/mp3"   />
                 </audio>
             </div>
@@ -31,14 +39,16 @@ class MusicPlayer extends React.Component{
 
 const styling = {
     imageCont : {
-        width: 'inherit'
+        width: 'inherit',
+        minHeight: 50
     },
     image : {
         width: '100%'
     },
     audioControl : {
-        marginTop : -60,
-        width: '100%'
+        marginTop : -100,
+        width: '100%',
+        overflowY: 'hidden',
     }
 }
 

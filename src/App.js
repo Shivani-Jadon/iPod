@@ -207,6 +207,25 @@ class App extends React.Component{
 	}
 
 
+	// function for play/pausing the audio with play/pause button on controls
+	playPauseAudio = (screen, menu) => {
+		if(screen === 3 && menu === 1){
+			console.log("Play/Pause audio");
+			const playBtn = document.getElementById('play-btn');
+			let song = document.getElementById('player');
+
+			playBtn.addEventListener('click', () => {
+					if(song.classList.contains('active-song') ) {
+					if(song.paused){
+						song.play();
+					}else{
+						song.pause();
+					}
+				}
+			})
+		}
+	}
+
   render(){
 	//const unlock = this.state.unlock;
 	return (
@@ -214,7 +233,8 @@ class App extends React.Component{
 		<div className="ipod-frame">
 			<Screen lock={this.state.locked} screenLock={this.state.screen} menuScreen={this.state.menu} pickMenu={this.move}
 			 		menuItem={this.state.menuItem} changeMenu_State={this.changeMenu} option={this.state.options}
-			 		changeWallpaper={this.changeWallpaper}	changeTheme={this.changeTheme}/>
+			 		changeWallpaper={this.changeWallpaper}	changeTheme={this.changeTheme}
+					playPauseAudio={this.playPauseAudio}/>
 			<Controls lock={this.state.locked} screenLock={this.state.screen} onUnlock={this.unlocking} onLock={this.locking}
 			 enterMenu={this.inMenu} exitMenu={this.backMenu}/>
 		</div>
