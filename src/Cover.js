@@ -29,7 +29,7 @@ const styling = {
     },
     image : {
         width: '100%',
-        height: 300
+        height: 275
     },
     text : {
         textTransform : 'UpperCase',

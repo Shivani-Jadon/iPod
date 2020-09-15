@@ -114,9 +114,10 @@ class App extends React.Component{
 				screen: this.state.screen + 1
 			})
 		}
-		if (this.state.screen >= 1 && this.state.screen < 2) {
+		if (this.state.screen === 1) {
 			this.setState({
-				menu: this.state.menuItem
+				menu: this.state.menuItem,
+				menuItem : 0
 			})
 		}
 		if(this.state.screen === 2 && this.state.menu === 3){

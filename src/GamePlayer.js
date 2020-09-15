@@ -21,11 +21,11 @@ class GamePlayer extends React.Component {
 const styling = {
     imageCont : {
         width: 'inherit',
-        maxHeight: 300
+        maxHeight: 275
     },
     image : {
         width: '100%',
-        height: 300
+        height: 275
     }
 }
 

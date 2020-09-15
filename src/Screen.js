@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Header from './Header';
 import LockScreen from './LockScreen';
 import MenuScreen from './MenuScreen';
 import wallpaper from './assets/images/wallpaper2.jpg';
@@ -63,7 +64,7 @@ const Screen = (props) => {
     
     return (
         <div id="ipod-screen" style={styling.frame}>
-
+            <Header/>
             {    displayScreen    }
 
         </div>

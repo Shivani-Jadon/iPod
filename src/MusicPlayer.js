@@ -60,9 +60,11 @@ const styling = {
         minHeight: 50
     },
     image : {
-        width: '100%'
+        width: '100%',
+        height: 250
     },
     audioControl : {
+        background: '#f1f3f4',
         marginTop : -100,
         width: '100%',
         overflowY: 'hidden',

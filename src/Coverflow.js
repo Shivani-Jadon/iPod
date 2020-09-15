@@ -38,7 +38,7 @@ const styling = {
         flexWrap: 'wrap',
         justifyContent: 'space-evenly',
         alignItems: 'center',
-        margin: 22
+        margin: '15px 22px'
     },
     cover : {
         height: 120,
