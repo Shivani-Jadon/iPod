@@ -1,19 +1,40 @@
 import React from 'react';
+import ZingTouch from 'zingtouch';
 import '../static/css/App.css';
 
+class Controls extends React.Component{
 
-function Controls(props) {
-    const screen = props.screenLock;
+    constructor(props) {
+        super(props);
+    }
+
+    componentDidMount(){
+
+        const {mylock, myscreen, onUnlock, onLock, enterMenu,
+             exitMenu} = this.props;
+
+        // getting buttons element by id
+        const backButton = document.getElementById('menu-btn');
+  
+        // defining active region for buttons
+        const activeMenuButton = ZingTouch.Region(backButton);
+      
+        activeMenuButton.bind(backButton, 'tap', function(event){
+            if(mylock === false && myscreen === 1)
+                    return onLock()
+            else
+                return exitMenu()
+        });
+
+    }
+
+    render(){
+        const screen = this.props.screenLock;
     //the wheel div comprises of the outer buttuns of the controller
     return (
         <section id="control" style={styling.controlSection}>
         <div id="wheel" style={styling.container}>
-            <div id="menu-btn" style={styling.menuBtn} onClick={() => { 
-                if(props.lock === false && screen === 1)
-                    return props.onLock()
-                else
-                    return props.exitMenu()
-            } }>Menu</div>
+            <div id="menu-btn" style={styling.menuBtn}>Menu</div>
             <div id="prev-btn" style={styling.backArrow}><i className="fas fa-backward"></i></div>
             <div id="next-btn" style={styling.forwardArrow}><i className="fas fa-forward"></i></div>
             <div id="play-btn" style={styling.play_pause}>
@@ -21,14 +42,15 @@ function Controls(props) {
             </div>            
         </div>
             <div id="okay-btn" style={styling.selectBtn} onClick={() => { 
-                if(props.lock === true)
-                    return props.onUnlock()
+                if(this.props.lock === true)
+                    return this.props.onUnlock()
                 else if(screen >= 1)
-                    return props.enterMenu()
+                    return this.props.enterMenu()
                 } }>
             </div>
         </section>
     )
+    }
 }
 
 

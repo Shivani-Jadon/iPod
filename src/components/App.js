@@ -65,7 +65,6 @@ class App extends React.Component{
 		
 			const containerElement = document.getElementById('wheel');
 			const activeRegion = ZingTouch.Region(containerElement);
-
 			const childElement = document.getElementById('wheel');
 
 			let list_item = document.getElementsByClassName('list-items');
@@ -94,6 +93,7 @@ class App extends React.Component{
 	
 						changeMenu_State(i);
 						i++;
+						
 					} else if(event.detail.distanceFromLast < 0){
 						console.log(len);
 						if (j === 0){
@@ -102,7 +102,7 @@ class App extends React.Component{
 						}			
 	
 						changeMenu_State(j);
-						--j;
+						j--;
 					}
 				}
 				// if (event.detail.distanceFromLast > 0 ) {
@@ -242,17 +242,19 @@ class App extends React.Component{
 			
 			const playBtn = document.getElementById('play-btn');
 			let song = document.getElementById('player');
-
-			playBtn.addEventListener('click', () => {
-					if(song.classList.contains('active-song') ) {
+			const activePlayButton = ZingTouch.Region(playBtn);
+			
+			activePlayButton.bind(playBtn, 'tap', function(event) {
+				if(song.classList.contains('active-song') ) {
 					if(song.paused){
 						song.play();
 					}else{
 						song.pause();
 					}
-				}
+				}	
 			})
 		}
+		
 	}
 
 
@@ -260,11 +262,11 @@ class App extends React.Component{
 	playNext = (screen, menu, menuItem, coverList, songList, changeMenuState) => {
 		if(screen === 3 && menu === 1){
 			const nextBtn = document.getElementById('next-btn');
-
 			let songPlayer = document.getElementById('player');
 
-			nextBtn.addEventListener('click', () => {
+			const activeNextButton = ZingTouch.Region(nextBtn);
 
+			activeNextButton.bind(nextBtn, 'tap', function(event) {
 				if(menuItem === coverList.length-1){
 					document.getElementById('song-cover').setAttribute('src',coverList[0] );
 					songPlayer.src = songList[0];
@@ -274,9 +276,10 @@ class App extends React.Component{
 					songPlayer.src = songList[menuItem + 1];
 					changeMenuState(menuItem + 1);
 				}
-
-				
 			})
+		
+		}else{
+			return;
 		}
 	}
 	
@@ -285,11 +288,10 @@ class App extends React.Component{
 
 		if(screen === 3 && menu === 1){
 			const prevBtn = document.getElementById('prev-btn');
+			let songPlayer = document.getElementById('player');			
+			const activePrevButton = ZingTouch.Region(prevBtn);
 
-			let songPlayer = document.getElementById('player');
-
-			prevBtn.addEventListener('click', () => {
-
+			activePrevButton.bind(prevBtn, 'tap', function(event) {
 				if(menuItem === 0){
 					document.getElementById('song-cover').setAttribute('src',coverList[coverList.length-1] );
 					songPlayer.src = songList[coverList.length-1];
@@ -298,8 +300,10 @@ class App extends React.Component{
 					document.getElementById('song-cover').setAttribute('src',coverList[menuItem - 1] );
 					songPlayer.src = songList[menuItem - 1];
 					changeMenuState(menuItem - 1);
-				}				
-			})
+				}
+			})							
+		}else{
+			return;
 		}
 	}
 
@@ -311,15 +315,18 @@ class App extends React.Component{
 		<div className="ipod-frame">
 			<Screen lock={this.state.locked} screenLock={this.state.screen} menuScreen={this.state.menu} pickMenu={this.move}
 			 		menuItem={this.state.menuItem} changeMenu_State={this.changeMenu} option={this.state.options}
-			 		changeWallpaper={this.changeWallpaper}	changeTheme={this.changeTheme}
-					playPauseAudio={this.playPauseAudio} playNext={this.playNext} playPrev={this.playPrev}	/>
+					 changeWallpaper={this.changeWallpaper}	changeTheme={this.changeTheme}
+					 playPauseAudio={this.playPauseAudio} playNext={this.playNext} playPrev={this.playPrev}
+					/>
 
-			<Controls lock={this.state.locked} screenLock={this.state.screen} onUnlock={this.unlocking} onLock={this.locking}
-			 enterMenu={this.inMenu} exitMenu={this.backMenu}/>
+			<Controls lock={this.state.locked} screenLock={this.state.screen} menuScreen={this.state.menu}
+			 onUnlock={this.unlocking} onLock={this.locking}
+			 enterMenu={this.inMenu} exitMenu={this.backMenu} />
 		</div>
 	  </div>
 	);
   }
+  
 }
 
 

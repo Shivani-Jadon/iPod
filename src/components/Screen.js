@@ -20,7 +20,8 @@ const Screen = (props) => {
     const screen = props.screenLock;
     const displayMenu = props.menuScreen;
     // console.log("unlock = ",unlock);
-    // console.log("Menu = ", displayMenu );
+    console.log("Menu = ", displayMenu );
+    console.log("Screen = ", screen);
     let displayScreen;
 
     if(screen <= 1)
