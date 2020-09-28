@@ -1,9 +1,9 @@
 import React from 'react';
-import './App.css';
+import '../static/css/App.css';
 import Header from './Header';
 import LockScreen from './LockScreen';
 import MenuScreen from './MenuScreen';
-import wallpaper from './assets/images/wallpaper2.jpg';
+import wallpaper from '../assets/images/wallpaper2.jpg';
 // importing main menu screens
 import Coverflow from './Coverflow';
 import Music from './Music';

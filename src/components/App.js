@@ -1,14 +1,14 @@
 import React from 'react';
-import './App.css';
+import '../static/css/App.css';
 import Screen from './Screen';
 import Controls from './Controls';
 import ZingTouch from 'zingtouch';
 // importing wallpapers
-import wallpaper1 from './assets/images/wallpaper2.jpg';
-import wallpaper2 from './assets/images/wallpaper1.jpg';
-import wallpaper3 from './assets/images/wallpaper3.jpg';
-import wallpaper4 from './assets/images/wallpaper4.jpg';
-import wallpaper5 from './assets/images/wallpaper5.jpg';
+import wallpaper1 from '../assets/images/wallpaper2.jpg';
+import wallpaper2 from '../assets/images/wallpaper1.jpg';
+import wallpaper3 from '../assets/images/wallpaper3.jpg';
+import wallpaper4 from '../assets/images/wallpaper4.jpg';
+import wallpaper5 from '../assets/images/wallpaper5.jpg';
 
 
 class App extends React.Component{
@@ -24,7 +24,8 @@ class App extends React.Component{
 		}
 
 		this.changeMenu = this.changeMenu.bind(this);
-		console.log(this.state);
+		
+		this.angle = 0;
 	}
 
   //function for unlocking the ipod if select-btn is pressed on lock screen
@@ -68,41 +69,68 @@ class App extends React.Component{
 			const childElement = document.getElementById('wheel');
 
 			let list_item = document.getElementsByClassName('list-items');
-			let len = list_item.length;
+			const len = list_item.length;
 			let i = 0;
 			let j = len;
 
 			activeRegion.bind(childElement, 'rotate', function (event) {
 				//Perform Operations
 				// console.log(event.detail);
+				if(event.detail.distanceFromOrigin === 0){
+					this.angle = event.detail.angle;
+				}
 				
 				// rotation function for clockwise direction
-				if (event.detail.distanceFromLast > 4) {
-					// console.log(event.detail.distanceFromLast);
-				
-					if (i >= list_item.length){
-						i = 0;
+				if (Math.abs(this.angle - event.detail.angle) > 15) {
+					this.angle = Math.abs(event.detail.angle);
+					if (event.detail.distanceFromLast === 0) {
+						return;
+					}
+					else if (event.detail.distanceFromLast > 0) {
+						if (i >= list_item.length){
+							i = 0;
+							changeMenu_State(i);
+						}			
+	
 						changeMenu_State(i);
-					}			
-
-					changeMenu_State(i);
-					i++;
-					
-				}
-
-				// rotation function for anti-clockwise direction
-				if (event.detail.distanceFromLast < -4) {
-					// console.log(event.detail.distanceFromLast);
-				
-					if (j <= 0){
-						j = len - 1;
+						i++;
+					} else if(event.detail.distanceFromLast < 0){
+						console.log(len);
+						if (j === 0){
+							j = len - 1;
+							changeMenu_State(j);
+						}			
+	
 						changeMenu_State(j);
-					}			
-
-					changeMenu_State(j);
-					j--;
-					
+						--j;
+					}
 				}
+				// if (event.detail.distanceFromLast > 0 ) {
+				// 	// console.log(event.detail.distanceFromLast);
+				
+				// 	if (i >= list_item.length){
+				// 		i = 0;
+				// 		changeMenu_State(i);
+				// 	}			
+
+				// 	changeMenu_State(i);
+				// 	i++;
+					
+				// }
+
+				// // rotation function for anti-clockwise direction
+				// if (event.detail.distanceFromLast < 0) {
+				// 	// console.log(event.detail.distanceFromLast);
+				
+				// 	if (j <= 0){
+				// 		j = len - 1;
+				// 		changeMenu_State(j);
+				// 	}			
+
+				// 	changeMenu_State(j);
+				// 	j--;
+					
+				// }
 				
 			})
     }

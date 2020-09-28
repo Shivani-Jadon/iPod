@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css';
-import './lockHeader.css';
+import '../static/css/App.css';
+import '../static/css/lockHeader.css';
 
  function Header() {
     let currentDate = new Date();
@@ -10,7 +10,7 @@ import './lockHeader.css';
      return (
         <div className='header-cont'>
             <time>{t}</time>
-            <date>{d}</date>
+            <span>{d}</span>
             <img id='battery-img' src="https://www.flaticon.com/svg/static/icons/svg/3103/3103460.svg" alt='battery'></img>
         </div>
     )

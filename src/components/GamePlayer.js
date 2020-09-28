@@ -1,7 +1,7 @@
 import React from 'react';
-import './App.css';
-import dice from './assets/gif/dice.gif';
-import rabbit from './assets/gif/rabbit.gif';
+import '../static/css/App.css';
+import dice from '../assets/gif/dice.gif';
+import rabbit from '../assets/gif/rabbit.gif';
 
 class GamePlayer extends React.Component {
 

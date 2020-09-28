@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css';
-import './lockHeader.css';
+import '../static/css/App.css';
+import '../static/css/lockHeader.css';
 
 function LockScreen(){
     return (
