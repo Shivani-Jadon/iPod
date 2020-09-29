@@ -19,10 +19,10 @@ class Wallpaper extends React.Component {
 
 
         for(let m=0; m < wallpaperList.length; m++){
-            menuElement.push(  m === menuItem ? <li className='list-items active' style={styling.listItem}>
+            menuElement.push(  m === menuItem ? <li className='list-items active' style={styling.listItem}  key={'wallpaper'+wallpaperList[m]} >
                                 {wallpaperList[m]}
                             </li> : 
-                            <li className='list-items' style={styling.listItem}>
+                            <li className='list-items' style={styling.listItem}  key={'wallpaper'+wallpaperList[m]} >
                                 {wallpaperList[m]}
                             </li>   );
         }

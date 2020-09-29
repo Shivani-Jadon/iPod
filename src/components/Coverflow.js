@@ -15,10 +15,10 @@ class Coverflow extends React.Component{
         let menuElement = [];
 
         for(let m=0; m < menuList.length; m++){
-            menuElement.push(  m === menuItem ? <li className='covers list-items active' style={styling.cover} >
+            menuElement.push(  m === menuItem ? <li className='covers list-items active' style={styling.cover}   key={'cover'+menuList[m]} >
                                                     <img src={menuList[m]} alt='cover1' style={styling.image} />
                                                 </li> :
-                            <li className='covers list-items' style={styling.cover} >
+                            <li className='covers list-items' style={styling.cover}   key={'cover'+menuList[m]}  >
                                 <img src={menuList[m]} alt='cover2' style={styling.image} />
                             </li>);
         }

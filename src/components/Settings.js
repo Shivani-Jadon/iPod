@@ -10,10 +10,10 @@ class Settings extends React.Component {
         let menuElement = [];
 
         for(let m=0; m < menuList.length; m++){
-            menuElement.push(  m === menuItem ? <li className='list-items active'>
+            menuElement.push(  m === menuItem ? <li className='list-items active' key={'setting'+menuList[m]} >
                                 <span>{menuList[m]}</span> <span><img style={styling.icons}  src="https://www.flaticon.com/svg/static/icons/svg/945/945147.svg" alt='>'/></span>
                             </li> : 
-                            <li className='list-items'>
+                            <li className='list-items' key={'setting'+menuList[m]} >
                                 <span>{menuList[m]}</span> <span><img style={styling.icons}  src="https://www.flaticon.com/svg/static/icons/svg/945/945147.svg" alt='>'/></span>
                             </li>   );
         }

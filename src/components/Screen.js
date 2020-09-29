@@ -24,6 +24,7 @@ const Screen = (props) => {
     console.log("Screen = ", screen);
     let displayScreen;
 
+    // main menu screen
     if(screen <= 1)
     {
         if(screen === 1){
@@ -32,7 +33,9 @@ const Screen = (props) => {
         }else{
             displayScreen = <LockScreen/>;
         }
-    }else if(screen === 2){
+    }
+    //  sub menu screen 
+    else if(screen === 2){
         if(displayMenu === 0){
             displayScreen = <Coverflow  menuItem={props.menuItem}  />;
         }else if(displayMenu === 1){
@@ -42,7 +45,9 @@ const Screen = (props) => {
         }else{
             displayScreen = <Settings    menuItem={props.menuItem}  />;
         }
-    }else if( screen === 3 ){
+    }
+    //  sub menus category
+    else if( screen === 3 ){
         if(displayMenu === 0){
             displayScreen = <Cover menuItem={props.menuItem}/>;
         }else if(displayMenu === 1){

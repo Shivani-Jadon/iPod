@@ -25,10 +25,10 @@ class MenuScreen extends React.Component {
         let menuElement = [];
 
         for(let m=0; m < menuList.length; m++){
-            menuElement.push(  m === menuItem ? <li className='list-items active'>
+            menuElement.push(  m === menuItem ? <li className='list-items active' key={'menu'+menuList[m]} >
                                 <span>{menuList[m]}</span> <span><img style={styling.icons}  src={icon[m]} alt='>'/></span>
                             </li> : 
-                            <li className='list-items'>
+                            <li className='list-items'  key={'menu'+menuList[m]} >
                                 <span>{menuList[m]}</span> <span><img style={styling.icons}  src={icon[m]} alt='>'/></span>
                             </li>   );
         }
