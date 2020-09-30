@@ -25,13 +25,13 @@ Songs and images and GIFs only for personal use, a big credit to font-awesome an
 ## Preview
 
 ### Lock Screen and main menu
-<img src="/assets/preview/LockScreen.png" width="400px" height="550px"></img> <img src="/assets/preview/Menu.png" width="390px" height="550px"></img>
+<img src="src/assets/preview/LockScreen.png" width="400px" height="550px"></img> <img src="src/assets/preview/Menu.png" width="390px" height="550px"></img>
 
 ### Playlist and Music player
-<img src="/assets/preview/Playlist.png" width="400px" height="550px"></img> <img src="/assets/preview/MusicPlayer.png" width="390px" height="550px"></img>
+<img src="src/assets/preview/Playlist.png" width="400px" height="550px"></img> <img src="src/assets/preview/MusicPlayer.png" width="390px" height="550px"></img>
 
 ### Different theme and wallpaper applied
-<img src="/assets/preview/Theme.png" width="400px" height="550px"></img> <img src="/assets/preview/Wallpaper.png" width="390px" height="550px"></img>
+<img src="src/assets/preview/Theme.png" width="400px" height="550px"></img> <img src="src/assets/preview/Wallpaper.png" width="390px" height="550px"></img>
 
 
 ## How To Install.
@@ -54,7 +54,6 @@ npm start or react-scripts start
 `/src` - all code files <br>
 `/src/components` - all react components <br>
 `/src/css` - all css files <br>
-`/src/statuc` - all static files <br>
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
