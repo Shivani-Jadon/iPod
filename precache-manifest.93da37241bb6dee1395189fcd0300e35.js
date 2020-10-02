@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0c46a4fea869e8d729a854effdd0c926",
+    "revision": "b63b27dfde5c88f10499505b8ece4f94",
     "url": "/iPod/index.html"
   },
   {
-    "revision": "09cc549d79d828bae037",
+    "revision": "ac7ecf2d023e8c420690",
     "url": "/iPod/static/css/main.a69b90a3.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/iPod/static/js/2.27d920cc.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "09cc549d79d828bae037",
-    "url": "/iPod/static/js/main.0684657e.chunk.js"
+    "revision": "ac7ecf2d023e8c420690",
+    "url": "/iPod/static/js/main.bc6b3885.chunk.js"
   },
   {
     "revision": "97dba56fde2dd1bc0e68",
