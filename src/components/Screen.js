@@ -1,5 +1,5 @@
 import React from 'react';
-import '../static/css/App.css';
+import '../css/App.css';
 import Header from './Header';
 import LockScreen from './LockScreen';
 import MenuScreen from './MenuScreen';
@@ -20,8 +20,8 @@ const Screen = (props) => {
     const screen = props.screenLock;
     const displayMenu = props.menuScreen;
     // console.log("unlock = ",unlock);
-    console.log("Menu = ", displayMenu );
-    console.log("Screen = ", screen);
+    // console.log("Menu = ", displayMenu );
+    // console.log("Screen = ", screen);
     let displayScreen;
 
     // main menu screen

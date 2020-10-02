@@ -1,5 +1,5 @@
 import React from 'react';
-import '../static/css/App.css';
+import '../css/App.css';
 
 const Games = (props) =>  {
 

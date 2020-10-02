@@ -1,6 +1,6 @@
 import React from 'react';
 import ZingTouch from 'zingtouch';
-import '../static/css/App.css';
+import '../css/App.css';
 
 class Controls extends React.Component{
 
@@ -9,9 +9,7 @@ class Controls extends React.Component{
     }
 
     componentDidMount(){
-
-        const {mylock, myscreen, onUnlock, onLock, enterMenu,
-             exitMenu} = this.props;
+        const exitMenu = this.props.exitMenu;
 
         // getting buttons element by id
         const backButton = document.getElementById('menu-btn');
@@ -20,9 +18,6 @@ class Controls extends React.Component{
         const activeMenuButton = ZingTouch.Region(backButton);
       
         activeMenuButton.bind(backButton, 'tap', function(event){
-            if(mylock === false && myscreen === 1)
-                    return onLock()
-            else
                 return exitMenu()
         });
 

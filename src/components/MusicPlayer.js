@@ -1,5 +1,5 @@
 import React from 'react';
-import '../static/css/App.css';
+import '../css/App.css';
 import song1 from '../assets/audio/Andhadhun.mp3';
 import song2 from '../assets/audio/Qaafirana.mp3';
 import song3 from '../assets/audio/Laila_Laila.mp3';
@@ -60,7 +60,6 @@ const styling = {
         minHeight: 50
     },
     image : {
-        width: '100%',
         height: 250
     },
     audioControl : {
@@ -68,6 +67,7 @@ const styling = {
         marginTop : -100,
         width: '100%',
         overflowY: 'hidden',
+        boxShadow: '0px 0px 11px 1px black'
     }
 }
 

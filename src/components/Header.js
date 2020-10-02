@@ -1,6 +1,6 @@
 import React from 'react';
-import '../static/css/App.css';
-import '../static/css/lockHeader.css';
+import '../css/App.css';
+import '../css/lockHeader.css';
 
  function Header() {
     let currentDate = new Date();
