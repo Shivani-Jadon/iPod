@@ -4,11 +4,10 @@ import '../css/App.css';
 class MenuScreen extends React.Component {
     constructor(props){
         super(props);
-       // this.listRef = React.createRef();
+
     }
 
     componentDidMount(){
-        
         this.props.pickMenu(this.props.changeMenu_State);
        
     }

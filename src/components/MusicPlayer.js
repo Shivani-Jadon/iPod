@@ -23,16 +23,16 @@ class MusicPlayer extends React.Component{
     componentDidMount(){
         this.props.playPauseAudio(this.props.screen, this.props.menu);
         this.props.playNext(this.props.screen, this.props.menu, this.props.menuItem,
-             this.state.cover, this.state.song, this.props.changeMenuState);
+             this.state.cover, this.state.song, this.props.changeMusicItem);
         this.props.playPrev(this.props.screen, this.props.menu, this.props.menuItem,
-        this.state.cover, this.state.song, this.props.changeMenuState);
+        this.state.cover, this.state.song, this.props.changeMusicItem);
     }
 
     componentDidUpdate(){
         this.props.playNext(this.props.screen, this.props.menu, this.props.menuItem,
-            this.state.cover, this.state.song, this.props.changeMenuState);
+            this.state.cover, this.state.song, this.props.changeMusicItem);
         this.props.playPrev(this.props.screen, this.props.menu, this.props.menuItem,
-            this.state.cover, this.state.song, this.props.changeMenuState);
+            this.state.cover, this.state.song, this.props.changeMusicItem);
     }
 
     componentWillUnmount(){

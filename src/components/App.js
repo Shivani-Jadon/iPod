@@ -34,7 +34,7 @@ class App extends React.Component{
 			this.setState({
 				locked: false,
 				screen: this.state.screen + 1
-			}, () => console.log("Lock = ", this.state.locked))
+			})
 		}	
 		 
 	}
@@ -53,9 +53,19 @@ class App extends React.Component{
 	// the function will be called from child components
 	changeMenu = (item) => {
 		
-		this.setState({
-			menuItem : item
-		})		
+		if(this.state.screen < 3 || (this.state.screen === 3) && (this.state.menu === 3)){
+			this.setState({
+				menuItem : item
+			})
+		}		
+	}
+
+	changeMenuStateMusic = (item) => {
+		if(this.state.screen === 3 && this.state.menu === 1){
+			this.setState({
+				menuItem : item
+			})
+		}
 	}
 
 	// function to go into sub-menus
@@ -74,7 +84,7 @@ class App extends React.Component{
 		if(this.state.screen === 2 && this.state.menu === 3){
 			this.setState({
 				options: this.state.menuItem
-			}, () => console.log("state change : ",this.state.menuItem))
+			})
 		}
 	}
 
@@ -85,14 +95,14 @@ class App extends React.Component{
 			this.setState({
 				locked: true,
 				screen: this.state.screen - 1
-			}, () => console.log("Lock = ", this.state.locked))
+			})
 		}
 			// for exiting current menu
 		if (this.state.screen > 0) {
 			this.setState({
 				screen: this.state.screen - 1,	
 				menuItem: 0			
-			}, () => console.log("screen change : ",this.state.screen))
+			})
 		}
 		if (this.state.screen > 0 && this.state.screen <= 1) {
 			this.setState({
@@ -181,11 +191,7 @@ class App extends React.Component{
 	// function for changing wallpaper
 	changeWallpaper = (screen, menu, menuItem) => {
 
-		console.log("wallpaper");
-
 		if(screen === 3 && menu === 3){
-
-			console.log("In change wallpaper");
 
 			const select_btn = document.getElementById('okay-btn'); 
 
@@ -236,7 +242,7 @@ class App extends React.Component{
 
 
 	// function to play next song through controls
-	playNext = (screen, menu, menuItem, coverList, songList, changeMenuState) => {
+	playNext = (screen, menu, menuItem, coverList, songList, changeMusicItem) => {
 		if(screen === 3 && menu === 1){
 			const nextBtn = document.getElementById('next-btn');
 			let songPlayer = document.getElementById('player');
@@ -245,13 +251,19 @@ class App extends React.Component{
 
 			activeNextButton.bind(nextBtn, 'tap', function(event) {
 				if(menuItem === coverList.length-1){
-					document.getElementById('song-cover').setAttribute('src',coverList[0] );
-					songPlayer.src = songList[0];
-					changeMenuState(0);
+					if(	document.getElementById('song-cover')	)
+					{
+						document.getElementById('song-cover').setAttribute('src',coverList[0] );
+						songPlayer.src = songList[0];
+						changeMusicItem(0);
+					}
 				}else{
-					document.getElementById('song-cover').setAttribute('src',coverList[menuItem + 1] );
-					songPlayer.src = songList[menuItem + 1];
-					changeMenuState(menuItem + 1);
+					if(	document.getElementById('song-cover')	)
+					{
+						document.getElementById('song-cover').setAttribute('src',coverList[menuItem + 1] );
+						songPlayer.src = songList[menuItem + 1];
+						changeMusicItem(menuItem + 1);
+					}
 				}
 			})
 		
@@ -261,7 +273,7 @@ class App extends React.Component{
 	}
 	
 	// function to play previous song through controls
-	playPrev = (screen, menu, menuItem, coverList, songList, changeMenuState) => {
+	playPrev = (screen, menu, menuItem, coverList, songList, changeMusicItem) => {
 
 		if(screen === 3 && menu === 1){
 			const prevBtn = document.getElementById('prev-btn');
@@ -270,15 +282,22 @@ class App extends React.Component{
 
 			activePrevButton.bind(prevBtn, 'tap', function(event) {
 				if(menuItem === 0){
-					document.getElementById('song-cover').setAttribute('src',coverList[coverList.length-1] );
-					songPlayer.src = songList[coverList.length-1];
-					changeMenuState(coverList.length-1);
+					if(	document.getElementById('song-cover')	)
+					{
+						document.getElementById('song-cover').setAttribute('src',coverList[coverList.length-1] );
+						songPlayer.src = songList[coverList.length-1];
+						changeMusicItem(coverList.length-1);
+					}
 				}else{
-					document.getElementById('song-cover').setAttribute('src',coverList[menuItem - 1] );
-					songPlayer.src = songList[menuItem - 1];
-					changeMenuState(menuItem - 1);
+					if(	document.getElementById('song-cover')	)
+					{
+						document.getElementById('song-cover').setAttribute('src',coverList[menuItem - 1] );
+						songPlayer.src = songList[menuItem - 1];
+						changeMusicItem(menuItem - 1);
+					}
 				}
-			})							
+			})		
+					
 		}else{
 			return;
 		}
@@ -292,7 +311,7 @@ class App extends React.Component{
 		<div className="ipod-frame">
 			<Screen lock={this.state.locked} screenLock={this.state.screen} menuScreen={this.state.menu} pickMenu={this.move}
 			 		menuItem={this.state.menuItem} changeMenu_State={this.changeMenu} option={this.state.options}
-					 changeWallpaper={this.changeWallpaper}	changeTheme={this.changeTheme}
+					 changeMusicItem={ this.changeMenuStateMusic } changeWallpaper={this.changeWallpaper}	changeTheme={this.changeTheme}
 					 playPauseAudio={this.playPauseAudio} playNext={this.playNext} playPrev={this.playPrev}
 					/>
 

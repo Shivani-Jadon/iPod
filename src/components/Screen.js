@@ -17,8 +17,8 @@ import Theme from './Theme';
 import Wallpaper from './Wallpaper';
 
 const Screen = (props) => {
-    const screen = props.screenLock;
-    const displayMenu = props.menuScreen;
+    let screen = props.screenLock;
+    let displayMenu = props.menuScreen;
     // console.log("unlock = ",unlock);
     // console.log("Menu = ", displayMenu );
     // console.log("Screen = ", screen);
@@ -29,7 +29,7 @@ const Screen = (props) => {
     {
         if(screen === 1){
             displayScreen = <MenuScreen pickMenu={ props.pickMenu }  changeMenu_State={props.changeMenu_State} 
-                            lock={props.lock}   menuItem={props.menuItem}   />;
+                            screen={ props.screenLock } lock={props.lock}   menuItem={props.menuItem}   />;
         }else{
             displayScreen = <LockScreen/>;
         }
@@ -49,11 +49,11 @@ const Screen = (props) => {
     //  sub menus category
     else if( screen === 3 ){
         if(displayMenu === 0){
-            displayScreen = <Cover menuItem={props.menuItem}/>;
+            displayScreen = <Cover menuItem={props.menuItem} />;
         }else if(displayMenu === 1){
             displayScreen = <MusicPlayer menuItem={props.menuItem} playPauseAudio={props.playPauseAudio}
                                         playNext={props.playNext} playPrev={props.playPrev}       
-                                        changeMenuState={props.changeMenu_State} screen={screen} menu={displayMenu} />;
+                                        changeMusicItem={props.changeMusicItem} screen={screen} menu={displayMenu} />;
         }else if(displayMenu === 2){
             displayScreen = <GamePlayer menuItem={props.menuItem}/>;
         }
