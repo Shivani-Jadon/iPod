@@ -60,6 +60,7 @@ class App extends React.Component{
 		}		
 	}
 
+	// function to change state of selected menu item in Music Player Component
 	changeMenuStateMusic = (item) => {
 		if(this.state.screen === 3 && this.state.menu === 1){
 			this.setState({
@@ -113,7 +114,7 @@ class App extends React.Component{
 	}
 
 
-	//funtion to move over the menu items
+	//function to move over the menu items by Rotation gesture
 	move = (changeMenu_State) => {
 		
 			const containerElement = document.getElementById('wheel');
@@ -163,6 +164,7 @@ class App extends React.Component{
     }
 	
 	
+	// changeTheme and changeWallpaper will work in Settings Component
 	// function for changing themes
 	changeTheme = (screen, menu, menuItem) => {
 		if(screen === 3 && menu === 3){
@@ -219,6 +221,7 @@ class App extends React.Component{
 	}
 
 
+	// The song will be played/pause/Prev/Next in Music component only using Zing touch tap gestures
 	// function for play/pausing the audio with play/pause button on controls
 	playPauseAudio = (screen, menu) => {
 		if(screen === 3 && menu === 1){

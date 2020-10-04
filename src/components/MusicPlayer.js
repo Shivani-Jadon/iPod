@@ -20,6 +20,7 @@ class MusicPlayer extends React.Component{
         }
     }
 
+    // Play/Pause or play Next/ play Prev when component is mounted and updated
     componentDidMount(){
         this.props.playPauseAudio(this.props.screen, this.props.menu);
         this.props.playNext(this.props.screen, this.props.menu, this.props.menuItem,

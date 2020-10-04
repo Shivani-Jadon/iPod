@@ -17,6 +17,7 @@ class Controls extends React.Component{
         // defining active region for buttons
         const activeMenuButton = ZingTouch.Region(backButton);
       
+        // exit menu or lock device whenever Menu button is pressed
         activeMenuButton.bind(backButton, 'tap', function(event){
                 return exitMenu()
         });
@@ -29,13 +30,18 @@ class Controls extends React.Component{
     return (
         <section id="control" style={styling.controlSection}>
         <div id="wheel" style={styling.container}>
+            {/* menu button acting as back button */}
             <div id="menu-btn" style={styling.menuBtn}>Menu</div>
+            {/* prev button to select previous track */}
             <div id="prev-btn" style={styling.backArrow}><i className="fas fa-backward"></i></div>
+            {/* next button to select next track */}
             <div id="next-btn" style={styling.forwardArrow}><i className="fas fa-forward"></i></div>
+            {/* play/pause the song */}
             <div id="play-btn" style={styling.play_pause}>
                <i className="fas fa-play"></i>  <i className="fas fa-pause"></i> 
             </div>            
         </div>
+            {/* Select button */}
             <div id="okay-btn" style={styling.selectBtn} onClick={() => { 
                 if(this.props.lock === true)
                     return this.props.onUnlock()

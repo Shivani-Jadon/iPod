@@ -11,6 +11,7 @@ Checkout the application [here](https://shivani-jadon.github.io/iPod/) at https:
 - Discover more when entering each menu
 
 Songs and images and GIFs only for personal use, a big credit to font-awesome and flat-icons
+For tap and rotation gestures Zing Touch library has been used
 
 ## How to Use/Control?
 
